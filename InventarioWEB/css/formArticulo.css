@@ -1,0 +1,57 @@
+﻿.formArticulos
+{
+  max-width: 1000px;
+  border-radius: 8px 8px 8px 8px;
+}
+.formArticulosContent
+{
+  border: 2px solid #2196F3;
+  border-bottom: 0px !important;
+  border-radius: 0px;
+}
+
+.formArticulosContent textarea
+{
+  min-width: 200px;
+  min-height: 55px;
+}
+
+.formArticulosContent md-select
+{
+  /*min-width: 180px;*/
+  min-height: 55px;
+}
+.formArticuloCampo 
+{
+  min-width: 170px;
+  margin-left:5px;
+  margin-right:5px;
+}
+
+.formArticuloRichText
+{
+    margin-bottom:-25px;
+    min-height:20px;
+}
+
+.formArticulosToolBar
+{
+  border-radius: 8px 8px 0px 0px;
+}
+
+.formArticulosToolBarFeet
+{
+  border-radius: 0px 0px 8px 8px;
+  max-height: 70px;
+  color: yellow;
+}
+
+.SumbmintThemeDark
+{
+  border: 2px solid #FFFF00;
+  border-radius: 4px;
+  color: #FFFF00 !important;
+  font-weight: lighter;
+}
+body {
+}

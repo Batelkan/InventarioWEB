@@ -1,0 +1,51 @@
+﻿
+<md-sidenav class="md-sidenav-left md-whiteframe-4dp" style="background-color: #2196F3; width:auto;min-width: 276px;" md-is-open="true" md-is-locked-open="true">
+    <md-toolbar class="">
+        <h1 class="md-toolbar-tools">GRUPO DESUR</h1>
+    </md-toolbar>
+    <div class="menu">
+        <ul class="mainmenu">
+            <li><img src="~/img/user.png" alt="User icon" class="icon"><span>Account</span></li>
+            <ul class="submenu">
+                <div class="expand-triangle"><img src="~/img/expand-blue.png"></div>
+                <li><a href="#!/ArticulosNuevos"> Articulo Nuevo </a></li>
+                <li><a href="#!/Computadoras"> Computadora Nuevo </a></li>
+                <li><span>Go Premium</span></li>
+            </ul>
+            <li><img src="~/img/envelope.png" alt="Envelope icon" class="icon"><span>Messages</span><div class="messages">23</div></li>
+            <ul class="submenu">
+                <div class="expand-triangle"><img src="~/img/expand-blue.png"></div>
+                <li><span>New</span></li>
+                <li><span>Sent</span></li>
+                <li><span>Trash</span></li>
+            </ul>
+            <li><img src="~/img/cog.png" alt="Cog icon" class="icon"><span>Settings</span></li>
+            <ul class="submenu">
+                <div class="expand-triangle"><img src="~/img/expand-blue.png"></div>
+                <li><span>Language</span></li>
+                <li><span>Password</span></li>
+                <li><span>Notifications</span></li>
+                <li><span>Privacy</span></li>
+                <li><span>Payments</span></li>
+            </ul>
+            <li><img src="~/img/key.png" alt="Key icon" class="icon"><span>Logout</span></li>
+        </ul>
+
+    </div>
+</md-sidenav>
+
+<div layout-fill class="Contenido">
+    <md-toolbar class="md-theme-indigo" style="background-color:#CFD8DC; color:#37474F" flex>
+        <h1 class="md-toolbar-tools">Contenido</h1>
+    </md-toolbar>
+    
+    <div class="" layout-padding  ng-view>
+
+    </div>
+</div>
+
+
+
+
+
+

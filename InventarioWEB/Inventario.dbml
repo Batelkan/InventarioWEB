@@ -1,0 +1,104 @@
+﻿<?xml version="1.0" encoding="utf-8"?><Database Name="Informatica" Class="InventarioDataContext" xmlns="http://schemas.microsoft.com/linqtosql/dbml/2007">
+  <Connection Mode="WebSettings" ConnectionString="Data Source=SQLDESUR;Initial Catalog=Informatica;User ID=Soporte;MultipleActiveResultSets=True;Application Name=EntityFramework" SettingsObjectName="System.Configuration.ConfigurationManager.ConnectionStrings" SettingsPropertyName="InformaticaConnectionString" Provider="System.Data.SqlClient" />
+  <Table Name="Informatica.Arca" Member="Arca">
+    <Type Name="Arca">
+      <Column Name="ID" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="Usuario" Type="System.String" DbType="VarChar(50) NOT NULL" CanBeNull="false" />
+      <Column Name="Contraseña" Type="System.String" DbType="VarChar(50) NOT NULL" CanBeNull="false" />
+      <Column Name="Descripcion" Type="System.String" DbType="VarChar(300) NOT NULL" CanBeNull="false" />
+      <Column Name="Observaciones" Type="System.String" DbType="VarChar(300) NOT NULL" CanBeNull="false" />
+      <Column Name="FechaAlta" Type="System.DateTime" DbType="Date NOT NULL" CanBeNull="false" />
+    </Type>
+  </Table>
+  <Table Name="Informatica.Computadoras" Member="Computadoras">
+    <Type Name="Computadoras">
+      <Column Name="ID" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="ID_Usuario" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="ID_Depto" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="Fabricante" Type="System.String" DbType="VarChar(50) NOT NULL" CanBeNull="false" />
+      <Column Name="serie" Type="System.String" DbType="VarChar(50) NOT NULL" CanBeNull="false" />
+      <Column Name="modelo" Type="System.String" DbType="VarChar(50) NOT NULL" CanBeNull="false" />
+      <Column Name="Procesador" Type="System.String" DbType="VarChar(50) NOT NULL" CanBeNull="false" />
+      <Column Name="Ram" Type="System.String" DbType="VarChar(50) NOT NULL" CanBeNull="false" />
+      <Column Name="HD" Type="System.String" DbType="VarChar(50) NOT NULL" CanBeNull="false" />
+      <Column Name="Video" Type="System.String" DbType="VarChar(50) NOT NULL" CanBeNull="false" />
+      <Column Name="Tipo" Type="System.String" DbType="VarChar(50) NOT NULL" CanBeNull="false" />
+      <Column Name="Estatus" Type="System.String" DbType="VarChar(30) NOT NULL" CanBeNull="false" />
+      <Column Name="Descripcion" Type="System.String" DbType="VarChar(300) NOT NULL" CanBeNull="false" />
+      <Column Name="Observaciones" Type="System.String" DbType="VarChar(300) NOT NULL" CanBeNull="false" />
+      <Column Name="IP" Type="System.String" DbType="VarChar(50) NOT NULL" CanBeNull="false" />
+      <Column Name="MAC" Type="System.String" DbType="VarChar(50) NOT NULL" CanBeNull="false" />
+      <Column Name="FechaAlta" Type="System.DateTime" DbType="Date NOT NULL" CanBeNull="false" />
+      <Column Name="Factura" Type="System.String" DbType="VarChar(50) NOT NULL" CanBeNull="false" />
+    </Type>
+  </Table>
+  <Table Name="Informatica.Datos" Member="Datos">
+    <Type Name="Datos">
+      <Column Name="ID" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="ID_Usuario" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="Contraseña_mail" Type="System.String" DbType="VarChar(150) NOT NULL" CanBeNull="false" />
+      <Column Name="Usuario_servidor" Type="System.String" DbType="VarChar(150) NOT NULL" CanBeNull="false" />
+      <Column Name="Contraseña_servidor" Type="System.String" DbType="VarChar(150) NOT NULL" CanBeNull="false" />
+      <Column Name="codigo_reloj" Type="System.String" DbType="VarChar(100) NOT NULL" CanBeNull="false" />
+      <Column Name="NumUsuario_reloj" Type="System.String" DbType="VarChar(100) NOT NULL" CanBeNull="false" />
+      <Column Name="FechaDeRegistro" Type="System.DateTime" DbType="Date NOT NULL" CanBeNull="false" />
+      <Association Name="Usuarios_Datos" Member="Usuarios" ThisKey="ID_Usuario" OtherKey="ID" Type="Usuarios" IsForeignKey="true" />
+    </Type>
+  </Table>
+  <Table Name="Informatica.Departamentos" Member="Departamentos">
+    <Type Name="Departamentos">
+      <Column Name="ID" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="Descripcion" Type="System.String" DbType="VarChar(300) NOT NULL" CanBeNull="false" />
+      <Column Name="Nombre" Type="System.String" DbType="VarChar(300) NOT NULL" CanBeNull="false" />
+    </Type>
+  </Table>
+  <Table Name="Informatica.Usuarios" Member="Usuarios">
+    <Type Name="Usuarios">
+      <Column Name="ID" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="Nombre" Type="System.String" DbType="VarChar(150) NOT NULL" CanBeNull="false" />
+      <Column Name="ApellidoP" Type="System.String" DbType="VarChar(100) NOT NULL" CanBeNull="false" />
+      <Column Name="ApellidoM" Type="System.String" DbType="VarChar(100) NOT NULL" CanBeNull="false" />
+      <Column Name="Correo" Type="System.String" DbType="VarChar(150) NOT NULL" CanBeNull="false" />
+      <Column Name="Departamento" Type="System.String" DbType="VarChar(100) NOT NULL" CanBeNull="false" />
+      <Column Name="Puesto" Type="System.String" DbType="VarChar(150) NOT NULL" CanBeNull="false" />
+      <Association Name="Usuarios_Datos" Member="Datos" ThisKey="ID" OtherKey="ID_Usuario" Type="Datos" />
+    </Type>
+  </Table>
+  <Table Name="Informatica.Tipo" Member="Tipo">
+    <Type Name="Tipo">
+      <Column Name="ID" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="Tipo" Member="Tipo1" Type="System.String" DbType="VarChar(50) NOT NULL" CanBeNull="false" />
+      <Column Name="Descripcion" Type="System.String" DbType="VarChar(100) NOT NULL" CanBeNull="false" />
+    </Type>
+  </Table>
+  <Table Name="Informatica.Unidades" Member="Unidades">
+    <Type Name="Unidades">
+      <Column Name="ID" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="Unidad" Type="System.String" DbType="VarChar(20)" CanBeNull="true" />
+      <Column Name="Abreviacion" Type="System.String" DbType="VarChar(10)" CanBeNull="true" />
+      <Column Name="Descripcion" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
+    </Type>
+  </Table>
+  <Table Name="Informatica.Articulos" Member="Articulos">
+    <Type Name="Articulos">
+      <Column Name="ID" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="ID_Stock" AutoSync="Never" Type="System.Int32" DbType="Int NOT NULL" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="ID_Depto" AutoSync="Never" Type="System.Int32" DbType="Int NOT NULL" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="Fabricante" AutoSync="Never" Type="System.String" DbType="VarChar(50) NOT NULL" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="Serie" AutoSync="Never" Type="System.String" DbType="VarChar(50) NOT NULL" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="Modelo" AutoSync="Never" Type="System.String" DbType="VarChar(50) NOT NULL" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="Descripcion" AutoSync="Never" Type="System.String" DbType="VarChar(300) NOT NULL" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="Observaciones" AutoSync="Never" Type="System.String" DbType="VarChar(300) NOT NULL" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="Estatus" AutoSync="Never" Type="System.String" DbType="VarChar(30) NOT NULL" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="Tipo" AutoSync="Never" Type="System.String" DbType="VarChar(50) NOT NULL" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="FechaAlta" AutoSync="Never" Type="System.DateTime" DbType="Date NOT NULL" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="Factura" AutoSync="Never" Type="System.String" DbType="VarChar(50) NOT NULL" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="Cantidad" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="CantidadDisponible" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="ID_Unidad" AutoSync="Never" Type="System.Int32" DbType="Int" IsDbGenerated="true" CanBeNull="true" />
+      <Column Name="Nombre" AutoSync="Never" Type="System.String" DbType="VarChar(50) NOT NULL" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="precio" AutoSync="Never" Type="System.Decimal" DbType="Decimal(19,2) NOT NULL" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="Proveedor" AutoSync="Never" Type="System.String" DbType="VarChar(50) NOT NULL" IsDbGenerated="true" CanBeNull="false" />
+    </Type>
+  </Table>
+</Database>

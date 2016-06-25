@@ -1,0 +1,93 @@
+﻿
+<div class="" layout-align="center center">
+
+    <script src="~/scripts/formArticulo.js"></script>
+    <link href="~/css/formArticulo.css" rel="stylesheet" />
+    <div ng-controller="formArticulosCtrl" class="formArticulos md-whiteframe-6dp" layout="column" ng-cloak>
+        <md-toolbar md-color="#2196F3" class="formArticulosToolBar">
+            <div class="md-toolbar-tools">
+                <h2 class="md-flex"><span class="mif-cart">  Ingresar Articulo Nuevo</h2>
+            </div>
+        </md-toolbar>
+        <!--md-theme="TemaDark"-->
+        <md-content layout="column" class="formArticulosContent" flex layout-padding>
+            <div class="" layout="row" layout-align="space-between center">
+                <md-input-container layout="column" class="formArticuloCampo">
+                    <label>Articulo</label>
+                    <input ng-model="articulo.nombre">
+                </md-input-container>
+                <md-input-container layout="column" class="formArticuloCampo">
+                    <label>Fabricante</label>
+                    <input ng-model="articulo.fabricante">
+                </md-input-container>
+                <md-input-container layout="column" class="formArticuloCampo">
+                    <label>Serie</label>
+                    <input ng-model="articulo.serie">
+                </md-input-container>
+            </div>
+
+            <div class="" layout="row" layout-align="space-between center">
+                <md-input-container layout="column" class="formArticuloCampo">
+                    <label>Modelo</label>
+                    <input ng-model="articulo.modelo">
+                </md-input-container>
+                <md-input-container layout="column" class="formArticuloCampo">
+                    <label>Factura</label>
+                    <input ng-model="articulo.factura">
+                </md-input-container>
+                <md-input-container layout="column" class="formArticuloCampo">
+                    <label>Proveedor</label>
+                    <input ng-model="articulo.proveedor">
+                </md-input-container>
+            </div>
+
+            <div class="" layout="row" layout-align="space-between center">
+                <md-input-container layout="column" class="formArticuloCampo">
+                    <label>Departamento</label>
+                    <md-select ng-model="articulo.depto">
+                        <md-option ng-repeat="depto in deptos" value="{{depto}}">{{depto}}</md-option>
+                    </md-select>
+                </md-input-container>
+                <md-input-container layout="column" class="formArticuloCampo">
+                    <label>Categoria</label>
+                    <md-select ng-model="articulo.categoria">
+                        <md-option ng-repeat="cat in categoria" value="{{cat}}">{{cat}}</md-option>
+                    </md-select>
+                </md-input-container>
+                <md-input-container layout="column" class="formArticuloCampo">
+                    <label>Estatus</label>
+                    <md-select ng-model="articulo.estatus">
+                        <md-option ng-repeat="est in estatus" value="{{est}}">{{est}}</md-option>
+                    </md-select>
+                </md-input-container>
+            </div>
+
+            <div class="" layout="row" layout-align="space-between center">
+                <md-input-container layout="column" class="formArticuloCampo">
+                    <label>Cantidad</label>
+                    <input ng-model="articulo.cantidad" style="min-width: 280px;" type="number" step="1">
+                </md-input-container>
+
+                <md-input-container layout="column" class="formArticuloCampo">
+                    <label>Precio</label>
+                    <input ng-model="articulo.precio" style="min-width: 250px;" type="number" step="0.01">
+                </md-input-container>
+            </div>
+
+            <div class="" layout="row" layout-align="space-between center">
+                <md-input-container class="md-block">
+                    <label>Descripcion</label>
+                    <textarea ng-model="articulo.descripcion" md-maxlength="200" rows="3" md-select-on-focus></textarea>
+                </md-input-container>
+                <md-input-container class="md-block">
+                    <label>Observaciones</label>
+                    <textarea ng-model="articulo.observaciones" md-maxlength="200" rows="3" md-select-on-focus></textarea>
+                </md-input-container>
+            </div>
+        </md-content>
+        <md-toolbar md-theme="TemaDark" layout-align="end center" layout-fill class="formArticulosToolBarFeet">
+            <md-button class="md-raised md-primary SumbmintThemeDark">Agregar</md-button>
+        </md-toolbar>
+    </div>
+
+</div>
