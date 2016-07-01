@@ -1,4 +1,4 @@
-﻿var app = angular.module("inventApp", ['ngMaterial', 'ngRoute', 'datatables']);
+﻿var app = angular.module("inventApp", ['ngMaterial', 'ngRoute', 'datatables','ngMessages']);
 
 
 
@@ -6,7 +6,17 @@ app.controller('mainController', function ($scope) {
 
 });
 
-app.controller('AgregarArticulo', function ($scope, $http) {
+
+app.filter("dateFilter", function () {
+    return function (item) {
+        if (item != null) {
+            return new Date(parseInt(item.substr(6)));
+        }
+        return "";
+    };
+});
+
+app.controller('AgregarArticulo', function ($scope, $http, DTOptionsBuilder, DTColumnDefBuilder) {
     $scope.categoria = [
      "RAM",
      "CPU",
@@ -39,10 +49,10 @@ app.controller('AgregarArticulo', function ($scope, $http) {
     $scope.articuloFactura = "";
     $scope.articuloProveedor = "";
     $scope.articuloDepto = "";
-    $scope.articuloCategoria = 0;
+    $scope.articuloCategoria = "";
     $scope.articuloEstatus = "";
-    $scope.articuloCantidad = 0;
-    $scope.articuloPrecio = 0.0;
+    $scope.articuloCantidad = 1;
+    $scope.articuloPrecio = 1.0;
     $scope.articuloDescripcion = "";
     $scope.articuloObservaciones = "";
 
@@ -50,7 +60,6 @@ app.controller('AgregarArticulo', function ($scope, $http) {
     .success(function (result) { $scope.articulos = result; })
     .error(function (noResult) { console.log(noResult);});
 
-   
     $scope.agregarArticulo = function () {
         $scope.nuevoArticulo = [
                   $scope.articuloNombre,
@@ -67,7 +76,13 @@ app.controller('AgregarArticulo', function ($scope, $http) {
                   $scope.articuloDescripcion,
                   $scope.articuloObservaciones]
 
-        $http.post('/Inventario/AddArticulos', JSON.stringify($scope.nuevoArticulo))
+        $http.post('/Inventario/AddArticulos', JSON.parse($scope.nuevoArticulo, function (key,value) {
+            if (typeof value === 'string') {
+                var d = /\/Date\((\d*)\)\//.exec(value);
+                return (d) ? new Date(+d[1]) : value;
+            }
+            return value;
+        }))//FuctionRetriver para la fecha
         .success(function (result) {
 
             $scope.articulos = result;
@@ -89,7 +104,45 @@ app.controller('AgregarArticulo', function ($scope, $http) {
         .error(function (noResult) { console.log(noResult); });
     };
 
+    $scope.BorrarArticulo = function (articulo) {
+ 
+        $http.post('/Inventario/DeleteArticulos', JSON.stringify(articulo, function (key, value) {
+            if (typeof value === 'string') {
+                var d = /\/Date\((\d*)\)\//.exec(value);
+                return (d) ? new Date(+d[1]) : value;
+            }
+            return value;
+        }))//FuctionRetriver para la fecha
+        .success(function (result) {
+
+            $scope.articulos = result;
+        })
+        .error(function (noResult) { console.log(noResult); });
+    };
+
+    $scope.dtOptions = DTOptionsBuilder.newOptions().withPaginationType('full_numbers').withOption('responsive', true).withLanguageSource('//cdn.datatables.net/plug-ins/1.10.12/i18n/Spanish.json');
+   
+    $scope.dtColumnDefs = [
+      DTColumnDefBuilder.newColumnDef(0),
+      DTColumnDefBuilder.newColumnDef(1),
+      DTColumnDefBuilder.newColumnDef(2),
+      DTColumnDefBuilder.newColumnDef(3),
+      DTColumnDefBuilder.newColumnDef(4),
+      DTColumnDefBuilder.newColumnDef(5),
+      DTColumnDefBuilder.newColumnDef(6),
+      DTColumnDefBuilder.newColumnDef(7),
+      DTColumnDefBuilder.newColumnDef(8).withClass('none'),
+      DTColumnDefBuilder.newColumnDef(9).withClass('none'),
+      DTColumnDefBuilder.newColumnDef(10).withClass('none'),
+      DTColumnDefBuilder.newColumnDef(11).withClass('none'),
+      DTColumnDefBuilder.newColumnDef(12).withClass('none'),
+      DTColumnDefBuilder.newColumnDef(13).withClass('none'),
+      DTColumnDefBuilder.newColumnDef(14).withClass('none'),
+      DTColumnDefBuilder.newColumnDef(15)
+    ];
 });
+
+
 
 app.controller('AgregarComputadora', function ($scope) {
 

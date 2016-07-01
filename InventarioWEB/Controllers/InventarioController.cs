@@ -33,11 +33,6 @@ namespace InventarioWEB.Controllers
         [HttpPost]
         public JsonResult AddArticulos(List<string> newArticle)
         {
-            //for (int i = 0; i < newArticle.Count; i++)
-            //{
-            //    System.Diagnostics.Debug.WriteLine("Dato " + i +" : "+ newArticle[i].ToString());
-            //}
-
             var db = new InventarioDataContext();
             var artNuevo = new Articulos();
             artNuevo.Nombre = newArticle[0];
@@ -46,7 +41,7 @@ namespace InventarioWEB.Controllers
             artNuevo.Modelo = newArticle[3];
             artNuevo.Factura = newArticle[4];
             artNuevo.Proveedor = newArticle[5];
-            artNuevo.ID_Depto = ObtenerDepto(newArticle[6]);
+            artNuevo.Departamento = newArticle[6];
             artNuevo.Tipo = newArticle[7];
             artNuevo.Estatus = newArticle[8];
             artNuevo.Cantidad = int.Parse(newArticle[9].ToString());
@@ -60,19 +55,20 @@ namespace InventarioWEB.Controllers
             var articulos = db.Articulos.ToList();
             return Json(articulos, JsonRequestBehavior.AllowGet);
         }
-
-        public int ObtenerDepto(string depto)
+        [HttpPost]
+        public JsonResult DeleteArticulos(Articulos delArticle)
         {
-            using (InventarioDataContext db = new InventarioDataContext())
-            {
-                
-                var dept = (from a in db.Departamentos
-                             where a.Nombre == depto.ToUpper()
-                             select a.ID).Single();
-                return int.Parse(dept.ToString());
-            }
-                
+            //System.Diagnostics.Debug.WriteLine("ID: " + delArticle.ID);
+            var db = new InventarioDataContext();
+            var arti = db.Articulos.FirstOrDefault(s => s.ID == delArticle.ID);
+            db.Articulos.DeleteOnSubmit(arti);
+            db.SubmitChanges();
+
+            var articulos = db.Articulos.ToList();
+            return Json(articulos, JsonRequestBehavior.AllowGet);
         }
+
+
 
 
     }

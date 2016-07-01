@@ -1672,8 +1672,6 @@ namespace InventarioWEB
 		
 		private int _ID_Stock;
 		
-		private int _ID_Depto;
-		
 		private string _Fabricante;
 		
 		private string _Serie;
@@ -1696,13 +1694,13 @@ namespace InventarioWEB
 		
 		private int _CantidadDisponible;
 		
-		private System.Nullable<int> _ID_Unidad;
-		
 		private string _Nombre;
 		
 		private decimal _precio;
 		
 		private string _Proveedor;
+		
+		private string _Departamento;
 		
     #region Definiciones de métodos de extensibilidad
     partial void OnLoaded();
@@ -1712,8 +1710,6 @@ namespace InventarioWEB
     partial void OnIDChanged();
     partial void OnID_StockChanging(int value);
     partial void OnID_StockChanged();
-    partial void OnID_DeptoChanging(int value);
-    partial void OnID_DeptoChanged();
     partial void OnFabricanteChanging(string value);
     partial void OnFabricanteChanged();
     partial void OnSerieChanging(string value);
@@ -1736,14 +1732,14 @@ namespace InventarioWEB
     partial void OnCantidadChanged();
     partial void OnCantidadDisponibleChanging(int value);
     partial void OnCantidadDisponibleChanged();
-    partial void OnID_UnidadChanging(System.Nullable<int> value);
-    partial void OnID_UnidadChanged();
     partial void OnNombreChanging(string value);
     partial void OnNombreChanged();
     partial void OnprecioChanging(decimal value);
     partial void OnprecioChanged();
     partial void OnProveedorChanging(string value);
     partial void OnProveedorChanged();
+    partial void OnDepartamentoChanging(string value);
+    partial void OnDepartamentoChanged();
     #endregion
 		
 		public Articulos()
@@ -1771,7 +1767,7 @@ namespace InventarioWEB
 			}
 		}
 		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_ID_Stock", DbType="Int NOT NULL", IsDbGenerated=true)]
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_ID_Stock", DbType="Int NOT NULL")]
 		public int ID_Stock
 		{
 			get
@@ -1791,27 +1787,7 @@ namespace InventarioWEB
 			}
 		}
 		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_ID_Depto", DbType="Int NOT NULL", IsDbGenerated=true)]
-		public int ID_Depto
-		{
-			get
-			{
-				return this._ID_Depto;
-			}
-			set
-			{
-				if ((this._ID_Depto != value))
-				{
-					this.OnID_DeptoChanging(value);
-					this.SendPropertyChanging();
-					this._ID_Depto = value;
-					this.SendPropertyChanged("ID_Depto");
-					this.OnID_DeptoChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Fabricante", DbType="VarChar(50) NOT NULL", CanBeNull=false, IsDbGenerated=true)]
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Fabricante", DbType="VarChar(50) NOT NULL", CanBeNull=false)]
 		public string Fabricante
 		{
 			get
@@ -1831,7 +1807,7 @@ namespace InventarioWEB
 			}
 		}
 		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Serie", DbType="VarChar(50) NOT NULL", CanBeNull=false, IsDbGenerated=true)]
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Serie", DbType="VarChar(50) NOT NULL", CanBeNull=false)]
 		public string Serie
 		{
 			get
@@ -1851,7 +1827,7 @@ namespace InventarioWEB
 			}
 		}
 		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Modelo", DbType="VarChar(50) NOT NULL", CanBeNull=false, IsDbGenerated=true)]
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Modelo", DbType="VarChar(50) NOT NULL", CanBeNull=false)]
 		public string Modelo
 		{
 			get
@@ -1871,7 +1847,7 @@ namespace InventarioWEB
 			}
 		}
 		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Descripcion", DbType="VarChar(300) NOT NULL", CanBeNull=false, IsDbGenerated=true)]
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Descripcion", DbType="VarChar(300) NOT NULL", CanBeNull=false)]
 		public string Descripcion
 		{
 			get
@@ -1891,7 +1867,7 @@ namespace InventarioWEB
 			}
 		}
 		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Observaciones", DbType="VarChar(300) NOT NULL", CanBeNull=false, IsDbGenerated=true)]
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Observaciones", DbType="VarChar(300) NOT NULL", CanBeNull=false)]
 		public string Observaciones
 		{
 			get
@@ -1911,7 +1887,7 @@ namespace InventarioWEB
 			}
 		}
 		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Estatus", DbType="VarChar(30) NOT NULL", CanBeNull=false, IsDbGenerated=true)]
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Estatus", DbType="VarChar(30) NOT NULL", CanBeNull=false)]
 		public string Estatus
 		{
 			get
@@ -1931,7 +1907,7 @@ namespace InventarioWEB
 			}
 		}
 		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Tipo", DbType="VarChar(50) NOT NULL", CanBeNull=false, IsDbGenerated=true)]
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Tipo", DbType="VarChar(50) NOT NULL", CanBeNull=false)]
 		public string Tipo
 		{
 			get
@@ -1951,7 +1927,7 @@ namespace InventarioWEB
 			}
 		}
 		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_FechaAlta", DbType="Date NOT NULL", IsDbGenerated=true)]
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_FechaAlta", DbType="Date NOT NULL")]
 		public System.DateTime FechaAlta
 		{
 			get
@@ -1971,7 +1947,7 @@ namespace InventarioWEB
 			}
 		}
 		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Factura", DbType="VarChar(50) NOT NULL", CanBeNull=false, IsDbGenerated=true)]
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Factura", DbType="VarChar(50) NOT NULL", CanBeNull=false)]
 		public string Factura
 		{
 			get
@@ -2031,27 +2007,7 @@ namespace InventarioWEB
 			}
 		}
 		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_ID_Unidad", DbType="Int", IsDbGenerated=true)]
-		public System.Nullable<int> ID_Unidad
-		{
-			get
-			{
-				return this._ID_Unidad;
-			}
-			set
-			{
-				if ((this._ID_Unidad != value))
-				{
-					this.OnID_UnidadChanging(value);
-					this.SendPropertyChanging();
-					this._ID_Unidad = value;
-					this.SendPropertyChanged("ID_Unidad");
-					this.OnID_UnidadChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Nombre", DbType="VarChar(50) NOT NULL", CanBeNull=false, IsDbGenerated=true)]
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Nombre", DbType="VarChar(50) NOT NULL", CanBeNull=false)]
 		public string Nombre
 		{
 			get
@@ -2071,7 +2027,7 @@ namespace InventarioWEB
 			}
 		}
 		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_precio", DbType="Decimal(19,2) NOT NULL", IsDbGenerated=true)]
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_precio", DbType="Decimal(19,2) NOT NULL")]
 		public decimal precio
 		{
 			get
@@ -2091,7 +2047,7 @@ namespace InventarioWEB
 			}
 		}
 		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Proveedor", DbType="VarChar(50) NOT NULL", CanBeNull=false, IsDbGenerated=true)]
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Proveedor", DbType="VarChar(50) NOT NULL", CanBeNull=false)]
 		public string Proveedor
 		{
 			get
@@ -2107,6 +2063,26 @@ namespace InventarioWEB
 					this._Proveedor = value;
 					this.SendPropertyChanged("Proveedor");
 					this.OnProveedorChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Departamento", DbType="VarChar(50) NOT NULL", CanBeNull=false)]
+		public string Departamento
+		{
+			get
+			{
+				return this._Departamento;
+			}
+			set
+			{
+				if ((this._Departamento != value))
+				{
+					this.OnDepartamentoChanging(value);
+					this.SendPropertyChanging();
+					this._Departamento = value;
+					this.SendPropertyChanged("Departamento");
+					this.OnDepartamentoChanged();
 				}
 			}
 		}

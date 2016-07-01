@@ -176,6 +176,8 @@
     <Content Include="scripts\angular-datatable\angular-datatables.renderer.js" />
     <Content Include="scripts\angular-datatable\angular-datatables.util.js" />
     <Content Include="scripts\angular-datatable\css\angular-datatables.tabletools.js" />
+    <Content Include="scripts\angular-datatable\css\dataTables.responsive.css" />
+    <Content Include="scripts\angular-datatable\dataTables.responsive.js" />
     <Content Include="scripts\angular-datatable\plugins\bootstrap\angular-datatables.bootstrap.colvis.js" />
     <Content Include="scripts\angular-datatable\plugins\bootstrap\angular-datatables.bootstrap.js" />
     <Content Include="scripts\angular-datatable\plugins\bootstrap\angular-datatables.bootstrap.options.js" />
@@ -194,6 +196,8 @@
     <Content Include="scripts\angular-material\angular-material-mocks.js" />
     <Content Include="scripts\angular-material\angular-material.js" />
     <Content Include="scripts\angular-material\angular-material.min.js" />
+    <Content Include="scripts\angular-messages.min.js" />
+    <Content Include="scripts\angular-resource.min.js" />
     <Content Include="scripts\angular-mocks.js" />
     <Content Include="scripts\angular-route.js" />
     <Content Include="scripts\angular-route.min.js" />

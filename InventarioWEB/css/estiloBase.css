@@ -10,4 +10,7 @@
   background-color: #FAFAFA;
 }
 
+md-backdrop{
+position: fixed !important;
+}
 .menu {padding:0;}

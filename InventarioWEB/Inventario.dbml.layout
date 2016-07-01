@@ -44,17 +44,17 @@
         <elementListCompartment Id="27075e48-0a6b-4e20-bc0f-10098c06051c" absoluteBounds="0.765, 10.21, 1.9700000000000002, 1.0185953776041665" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
       </nestedChildShapes>
     </classShape>
-    <associationConnector edgePoints="[(2.75 : 2.07774983723958); (3.5 : 2.07774983723958)]" fixedFrom="NotFixed" fixedTo="NotFixed">
+    <associationConnector edgePoints="[(2.75 : 2.07774983723958); (3.5 : 2.07774983723958)]" fixedFrom="Algorithm" fixedTo="Algorithm">
       <AssociationMoniker Name="/InventarioDataContext/Usuarios/Usuarios_Datos" />
       <nodes>
         <classShapeMoniker Id="0de36e81-a8db-47e2-ac8e-fc388270dfc5" />
         <classShapeMoniker Id="b558d1e4-74bd-409d-8700-424f98054336" />
       </nodes>
     </associationConnector>
-    <classShape Id="b7151315-9ce1-4dfd-85b4-e49628cf08be" absoluteBounds="3.625, 5, 2, 4.2708154296875">
+    <classShape Id="403d556e-7968-4847-ba30-10016de89b5f" absoluteBounds="3.875, 4.5, 2, 4.0785139973958326">
       <DataClassMoniker Name="/InventarioDataContext/Articulos" />
       <nestedChildShapes>
-        <elementListCompartment Id="52310814-8c54-471f-9559-5d8433f97d5a" absoluteBounds="3.64, 5.46, 1.9700000000000002, 3.7108154296875" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+        <elementListCompartment Id="7e5f6531-c15c-4caa-be0f-7154a222fb16" absoluteBounds="3.89, 4.96, 1.9700000000000002, 3.518513997395833" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
       </nestedChildShapes>
     </classShape>
   </nestedChildShapes>

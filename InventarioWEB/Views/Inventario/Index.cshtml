@@ -34,15 +34,17 @@
     </div>
 </md-sidenav>
 
-<div layout-fill class="Contenido">
-    <md-toolbar class="md-theme-indigo" style="background-color:#CFD8DC; color:#37474F" flex>
+<md-content md-scroll-y layout="column"  layout-fill class="Contenido" >
+    <md-toolbar class="md-theme-indigo"  style="background-color:#CFD8DC; color:#37474F;max-height:80px" flex>
         <h1 class="md-toolbar-tools">Contenido</h1>
     </md-toolbar>
     
-    <div class="" layout-padding  ng-view>
+    <md-content md-scroll-y layout="column" flex>
+        <div layout-padding  ng-view>
 
-    </div>
-</div>
+        </div>
+    </md-content>
+</md-content>
 
 
 

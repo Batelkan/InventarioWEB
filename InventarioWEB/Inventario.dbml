@@ -82,23 +82,22 @@
   <Table Name="Informatica.Articulos" Member="Articulos">
     <Type Name="Articulos">
       <Column Name="ID" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
-      <Column Name="ID_Stock" AutoSync="Never" Type="System.Int32" DbType="Int NOT NULL" IsDbGenerated="true" CanBeNull="false" />
-      <Column Name="ID_Depto" AutoSync="Never" Type="System.Int32" DbType="Int NOT NULL" IsDbGenerated="true" CanBeNull="false" />
-      <Column Name="Fabricante" AutoSync="Never" Type="System.String" DbType="VarChar(50) NOT NULL" IsDbGenerated="true" CanBeNull="false" />
-      <Column Name="Serie" AutoSync="Never" Type="System.String" DbType="VarChar(50) NOT NULL" IsDbGenerated="true" CanBeNull="false" />
-      <Column Name="Modelo" AutoSync="Never" Type="System.String" DbType="VarChar(50) NOT NULL" IsDbGenerated="true" CanBeNull="false" />
-      <Column Name="Descripcion" AutoSync="Never" Type="System.String" DbType="VarChar(300) NOT NULL" IsDbGenerated="true" CanBeNull="false" />
-      <Column Name="Observaciones" AutoSync="Never" Type="System.String" DbType="VarChar(300) NOT NULL" IsDbGenerated="true" CanBeNull="false" />
-      <Column Name="Estatus" AutoSync="Never" Type="System.String" DbType="VarChar(30) NOT NULL" IsDbGenerated="true" CanBeNull="false" />
-      <Column Name="Tipo" AutoSync="Never" Type="System.String" DbType="VarChar(50) NOT NULL" IsDbGenerated="true" CanBeNull="false" />
-      <Column Name="FechaAlta" AutoSync="Never" Type="System.DateTime" DbType="Date NOT NULL" IsDbGenerated="true" CanBeNull="false" />
-      <Column Name="Factura" AutoSync="Never" Type="System.String" DbType="VarChar(50) NOT NULL" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="ID_Stock" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="Fabricante" Type="System.String" DbType="VarChar(50) NOT NULL" CanBeNull="false" />
+      <Column Name="Serie" Type="System.String" DbType="VarChar(50) NOT NULL" CanBeNull="false" />
+      <Column Name="Modelo" Type="System.String" DbType="VarChar(50) NOT NULL" CanBeNull="false" />
+      <Column Name="Descripcion" Type="System.String" DbType="VarChar(300) NOT NULL" CanBeNull="false" />
+      <Column Name="Observaciones" Type="System.String" DbType="VarChar(300) NOT NULL" CanBeNull="false" />
+      <Column Name="Estatus" Type="System.String" DbType="VarChar(30) NOT NULL" CanBeNull="false" />
+      <Column Name="Tipo" Type="System.String" DbType="VarChar(50) NOT NULL" CanBeNull="false" />
+      <Column Name="FechaAlta" Type="System.DateTime" DbType="Date NOT NULL" CanBeNull="false" />
+      <Column Name="Factura" Type="System.String" DbType="VarChar(50) NOT NULL" CanBeNull="false" />
       <Column Name="Cantidad" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
       <Column Name="CantidadDisponible" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
-      <Column Name="ID_Unidad" AutoSync="Never" Type="System.Int32" DbType="Int" IsDbGenerated="true" CanBeNull="true" />
-      <Column Name="Nombre" AutoSync="Never" Type="System.String" DbType="VarChar(50) NOT NULL" IsDbGenerated="true" CanBeNull="false" />
-      <Column Name="precio" AutoSync="Never" Type="System.Decimal" DbType="Decimal(19,2) NOT NULL" IsDbGenerated="true" CanBeNull="false" />
-      <Column Name="Proveedor" AutoSync="Never" Type="System.String" DbType="VarChar(50) NOT NULL" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="Nombre" Type="System.String" DbType="VarChar(50) NOT NULL" CanBeNull="false" />
+      <Column Name="precio" Type="System.Decimal" DbType="Decimal(19,2) NOT NULL" CanBeNull="false" />
+      <Column Name="Proveedor" Type="System.String" DbType="VarChar(50) NOT NULL" CanBeNull="false" />
+      <Column Name="Departamento" Type="System.String" DbType="VarChar(50) NOT NULL" CanBeNull="false" />
     </Type>
   </Table>
 </Database>
