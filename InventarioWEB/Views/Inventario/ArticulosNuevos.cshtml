@@ -2,7 +2,7 @@
 
 <div  layout="column" layout-align="center center">
     <link href="~/css/formArticulo.css" rel="stylesheet" />
-    <form name="frmArticulos" class="formArticulos md-whiteframe-6dp" layout="column">
+    <form name="frmArticulos" ng-model="frmArticulos" class="formArticulos md-whiteframe-6dp" layout="column">
         <md-toolbar md-color="#2196F3" class="formArticulosToolBar">
             <div class="md-toolbar-tools">
                 <h2 class="md-flex"><span class="mif-cart">  Ingresar Articulo Nuevo</span></h2>
@@ -103,6 +103,7 @@
                         <div ng-message="min">Este campo es requerido.</div>
                     </div>
                 </md-input-container>
+                <md-datepicker ng-model="articuloFecha" class="formDatePicker" md-placeholder="Fecha de Alta">{{articuloDia}}</md-datepicker>
                 <md-input-container class="formArticuloRichText">
                     <label>Descripcion</label>
                     <textarea ng-model="articuloDescripcion" name="farticuloDescripcion" md-maxlength="100" rows="3" md-select-on-focus required></textarea>
@@ -123,12 +124,12 @@
 
         </md-content>
         <md-toolbar md-theme="TemaDark" layout="row" layout-align="end center" layout-fill class="formArticulosToolBarFeet">
-            <md-button class="md-raised md-primary SumbmintThemeDark" ng-click="frmArticulos.$valid && agregarArticulo()">Agregar</md-button>
+            <md-button class="md-raised md-primary SumbmintThemeDark" ng-click="frmArticulos.$valid && agregarArticulo()">{{!articuloID ? 'Agregar' : 'Actualizar'}}</md-button>
         </md-toolbar>
     </form>
 
-    <div>
-        <table datatable="ng" dt-options="dtOptions"  dt-column-defs="dtColumnDefs" class="row-border hover mdl-data-table " cellspacing="0" >
+    <div class="formArticulosDataTable">
+        <table datatable="ng" dt-options="dtOptions"  dt-column-defs="dtColumnDefs" class="row-border hover mdl-data-table" style="max-width:1162px;" cellspacing="0" >
             <thead>
                 <tr>
                     <th>ID</th>
@@ -165,10 +166,10 @@
                   <td>{{ articulo.Modelo }}</td>
                   <td>{{ articulo.Factura }}</td>
                   <td>{{ articulo.Descripcion}}</td>
-                  <td>{{ articulo.Observacion }}</td>
+                  <td>{{ articulo.Observaciones }}</td>
                   <td>
                       <div>
-                          <md-button class="md-fab md-mini md-primary" aria-label="Editar">
+                          <md-button class="md-fab md-mini md-primary" aria-label="Editar" ng-click="EditarArticulo(articulo)">
                               <i class="fa fa-pencil" fa-lg aria-hidden="true" style="color: white;"></i>
                           </md-button>
                           <md-button class="md-fab md-mini md-hue-1" aria-label="Borrar" ng-click="BorrarArticulo(articulo)">

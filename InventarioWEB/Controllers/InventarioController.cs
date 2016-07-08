@@ -30,9 +30,11 @@ namespace InventarioWEB.Controllers
             var articulos = db.Articulos.ToList();
             return Json(articulos, JsonRequestBehavior.AllowGet);
         }
+
         [HttpPost]
         public JsonResult AddArticulos(List<string> newArticle)
         {
+            //System.Diagnostics.Debug.WriteLine("fecha: " + newArticle[11]);
             var db = new InventarioDataContext();
             var artNuevo = new Articulos();
             artNuevo.Nombre = newArticle[0];
@@ -47,14 +49,16 @@ namespace InventarioWEB.Controllers
             artNuevo.Cantidad = int.Parse(newArticle[9].ToString());
             artNuevo.CantidadDisponible = int.Parse(newArticle[9].ToString());
             artNuevo.precio = decimal.Parse(newArticle[10]);
-            artNuevo.Descripcion = newArticle[11];
-            artNuevo.Observaciones = newArticle[12];
+            artNuevo.FechaAlta = DateTime.Parse(newArticle[11]);
+            artNuevo.Descripcion = newArticle[12];
+            artNuevo.Observaciones = newArticle[13];
             db.Articulos.InsertOnSubmit(artNuevo);
 
             db.SubmitChanges();
             var articulos = db.Articulos.ToList();
             return Json(articulos, JsonRequestBehavior.AllowGet);
         }
+
         [HttpPost]
         public JsonResult DeleteArticulos(Articulos delArticle)
         {
@@ -68,7 +72,15 @@ namespace InventarioWEB.Controllers
             return Json(articulos, JsonRequestBehavior.AllowGet);
         }
 
-
+        [HttpPost]
+        public JsonResult EditarArticulos(Articulos delArticle)
+        {
+            //System.Diagnostics.Debug.WriteLine("ID: " + delArticle.ID);
+            var db = new InventarioDataContext();
+            var arti = db.Articulos.FirstOrDefault(s => s.ID == delArticle.ID);
+            var articulos = arti;
+            return Json(articulos, JsonRequestBehavior.AllowGet);
+        }
 
 
     }

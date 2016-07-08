@@ -10,6 +10,11 @@
   border-radius: 0px;
 }
 
+.formDatePicker
+{
+    margin-bottom: -20px;
+}
+
 .formArticulosContent textarea
 {
   min-width: 200px;
@@ -53,5 +58,11 @@
   color: #FFFF00 !important;
   font-weight: lighter;
 }
+
+.formArticulosDataTable
+{
+    /*max-width:1162px !important;*/
+}
+
 body {
 }
